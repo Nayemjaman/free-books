@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse
 
 # Create your views here.
-
+# core = booksite
 def index(request):
-    return HttpResponse('fuck you')
+    return render(request, 'index.html')
