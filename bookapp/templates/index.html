@@ -1,11 +1,54 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container-fluid">
-  <div class="container">
+
+  <div class="container-fluid">
 
     <h3 class="mt-5 pb-3">Enjoy free books.</h3>
     <hr>
 
   </div>
-</div>
+  <div class = 'container-fluid'>
+    <div class = 'row'><h4>Recommended Books</h4></div>
+    <div class = 'row'>
+      {% for rb in recommended_books %}
+      <div class = 'col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2'>
+          <div>
+            <div class="uk-card uk-card-default uk-card-body"> 
+                <img src="{{ rb.cover_image.url }}" alt="">
+               
+            </div>
+        </div>
+      </a>
+      </div>
+      {% endfor %}
+    </div>
+    <div class = 'row'><h4>Fiction books</h4></div>
+    <div class = 'row'>
+      {% for sb in fiction_books %}
+      <div class = 'col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2'>
+          <div>
+            <div class="uk-card uk-card-default uk-card-body"> 
+                <img src="{{ sb.cover_image.url }}" alt="">
+               
+            </div>
+        </div>
+      </a>
+      </div>
+      {% endfor %}
+    </div>
+    <div class = 'row'><h4>Business books</h4></div>
+    <div class = 'row'>
+      {% for bb in business_books %}
+      <div class = 'col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2'>
+          <div>
+            <div class="uk-card uk-card-default uk-card-body"> 
+                <img src="{{ bb.cover_image.url }}" alt="">
+               
+            </div>
+        </div>
+      </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 {% endblock %}
