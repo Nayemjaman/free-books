@@ -15,7 +15,7 @@
         <link rel = 'stylesheet' href ="{% static 'css/style.css' %}">
         <link rel = 'stylesheet' href ="{% static 'css/home.css' %}">
         <link rel = 'stylesheet' href ="{% static 'css/book_detail.css' %}">
-        <link rel = 'stylesheet' href = "{% static 'uikit/css/uikit.css' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.14/dist/css/uikit.min.css" />
     {% block title %}
     {% endblock %}
 </head>
@@ -31,7 +31,7 @@
     <div class="container">
         <p uk-margin style = "width: 80%; margin: auto; margin-top: 20px">
             {% for category in categories %}
-            <a class="uk-button uk-button-default" href=""><strong>{{category.name}}</strong></a>
+            <a class="uk-button uk-button-default bg-info" href=""><strong>{{category.name}}</strong></a>
             {% endfor %}
         </p>
         {% block content %}{% endblock %}
