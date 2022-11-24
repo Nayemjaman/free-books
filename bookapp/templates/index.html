@@ -1,14 +1,13 @@
 {% extends "base.html" %}
+{% block title %}
+<title>Free Book | Home</title>
+{% endblock %}
+
 {% block content %}
 
-  <div class="container-fluid">
 
-    <h3 class="mt-5 pb-3">Enjoy free books.</h3>
-    <hr>
-
-  </div>
-  <div class = 'container-fluid'>
-    <div class = 'row'><h4>Recommended Books</h4></div>
+  <div class = 'container'>
+    <h4 class="text-center">Recommended Books</h4>
     <div class = 'row'>
       {% for rb in recommended_books %}
       <div class = 'col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2'>
@@ -22,7 +21,7 @@
       </div>
       {% endfor %}
     </div>
-    <div class = 'row'><h4>Fiction books</h4></div>
+    <h4 class="text-center">Fiction books</h4>
     <div class = 'row'>
       {% for sb in fiction_books %}
       <div class = 'col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2'>
@@ -36,7 +35,7 @@
       </div>
       {% endfor %}
     </div>
-    <div class = 'row'><h4>Business books</h4></div>
+    <h4 class="text-center">Business books</h4>
     <div class = 'row'>
       {% for bb in business_books %}
       <div class = 'col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2'>

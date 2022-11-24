@@ -12,3 +12,10 @@ def index(request):
         'business_books':business_books
     }
     return render(request, 'index.html', context)
+
+def all_books(request):
+    books =Book.objects.all()
+    context = {
+        'books': books
+    }
+    return render(request,'all_books.html', context)
