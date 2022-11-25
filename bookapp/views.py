@@ -19,3 +19,22 @@ def all_books(request):
         'books': books
     }
     return render(request,'all_books.html', context)
+
+
+def category_detail(request, slug):
+    category = Category.objects.get(slug=slug)
+    context ={
+        'category': category
+    }
+    return render(request, 'category_detail.html', context)
+
+def book_detail(request,slug):
+    book = Book.objects.get(slug=slug)
+    books_category = book.category.first()
+    similar_books = Book.objects.filter(category__name__startswith=books_category)
+    context = {
+        'book': book,
+        'similar_books': similar_books,
+        'books_category':books_category
+    }
+    return render(request, 'book_detail.html',context)
