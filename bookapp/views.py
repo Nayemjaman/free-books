@@ -1,5 +1,6 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse,redirect
 from .models import *
+from .forms import CreateUserForm
 # Create your views here.
 # core = booksite
 def index(request):
@@ -43,3 +44,20 @@ def book_detail(request,slug):
 def search_book(request):
     search_books =  Book.objects.filter(title__icontains=request.POST.get('name_of_book'))
     return render(request,'search_book.html',{'search_books':search_books})
+
+
+def register(request):
+    register_form = CreateUserForm()
+    if request.method == 'POST':
+        register_form = CreateUserForm(request.POST)
+        if register_form.is_valid():
+            register_form.save()
+            return redirect('login')
+    context = {'register_form':register_form}
+    return render(request,'register.html',context)
+
+    
+def login(request):
+    return render(request,'login.html')
+def logout(request):
+    return render(request,'logout.html')

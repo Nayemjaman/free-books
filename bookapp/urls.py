@@ -7,5 +7,8 @@ urlpatterns = [
     path('category_detail/<str:slug>', views.category_detail, name= 'category_detail'),
     path('book_detail/<str:slug>', views.book_detail, name= 'book_detail'),
     path('search_book', views.search_book, name= 'search_book'),
+    path('register', views.register, name= 'register'),
+    path('login', views.login, name= 'login'),
+    path('logout', views.logout, name= 'logout'),
 
 ]
