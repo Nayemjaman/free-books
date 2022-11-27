@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}
+<title>SEARCH RESULTS</title>
+{% endblock %}
+
+{% block content %}
+
+<div class = 'container'style = "padding-left: 0px">
+    {% if search_books %}
+    <div class = 'row'>
+        {% for book in search_books %}
+        <div class = 'col- col-sm-4 col-md-4 col-lg-3 col-xl-2'>
+            <a href = "{% url 'book_detail' book.slug %}">
+                         
+    <div>
+        <div class="uk-card uk-card-default uk-card-body"> 
+            {% if book.cover_image %}
+            <img src="{{ book.cover_image.url }}" alt="">
+            {% endif %}
+            
+        </div>
+    </div>
+          
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="row">
+    <h3>No books available.</h3>
+</div>
+{% endif %}
+</div>
+{% endblock %}

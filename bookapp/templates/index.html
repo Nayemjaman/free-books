@@ -14,7 +14,9 @@
       <a href="{% url 'book_detail' rb.slug %}">
         <div>
           <div class="uk-card uk-card-default uk-card-body">
+            {% if rb.cover_image %}
             <img src="{{ rb.cover_image.url }}" alt="">
+            {% endif %}
 
           </div>
         </div>

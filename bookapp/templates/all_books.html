@@ -13,7 +13,9 @@
 
                 <div>
                     <div class="uk-card uk-card-default uk-card-body">
-                        <img src="{{book.cover_image.url}}">
+                        {% if book.cover_image %}
+                        <img src="{{ book.cover_image.url }}" alt="">
+                        {% endif %}
 
 
                     </div>

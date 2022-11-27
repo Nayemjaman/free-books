@@ -38,3 +38,8 @@ def book_detail(request,slug):
         'books_category':books_category
     }
     return render(request, 'book_detail.html',context)
+
+
+def search_book(request):
+    search_books =  Book.objects.filter(title__icontains=request.POST.get('name_of_book'))
+    return render(request,'search_book.html',{'search_books':search_books})

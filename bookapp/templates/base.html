@@ -21,14 +21,60 @@
     {% endblock %}
 </head>
 
-<body>
-    <div class="container">
-        <a href="{% url 'index' %}">Home</a>
-        <a href="{% url 'all_books' %}">All Books</a>
-        <h3 class="mt-5 pb-3">Enjoy free books.</h3>
-        <hr>
+<body class="font-monospace">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div id='logo'>
+            </div>
+            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'all_books' %}">Books</a>
+                    </li>
 
-    </div>
+                </ul>
+                <form class="d-flex" action="{% url 'search_book' %}" method="POST" style='margin: 0px 150px 0px 150px'>
+                    {% csrf_token %}
+                    {{search_form.name_of_book }}
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <div style='width: auto; display: flex'>
+                    {% if user.is_authenticated %}
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Hello {{user.username}}
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Upload Book</a></li>
+                            <li><a class="dropdown-item" href="{% url 'index' %}">Logout</a></li>
+                        </ul>
+                    </div>
+                    <!-- <p>Hello {{user.username}}</p>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">Logout</a>
+            </li> -->
+                    {% else %}
+                    <a class="nav-link" href="{% url 'index' %}">
+                        <button type="button" class="btn btn-outline-primary">Sign Up</button></a>
+                    <a class="nav-link" href="{% url 'index' %}">
+                        <button type="button" class="btn btn-outline-success">Login</button>
+                    </a>
+
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <p uk-margin style="width: 80%; margin: auto; margin-top: 20px">
             {% for category in categories %}
