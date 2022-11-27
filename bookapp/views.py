@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponse,redirect
 from .models import *
 from .forms import CreateUserForm
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 # core = booksite
 def index(request):
@@ -52,12 +54,25 @@ def register(request):
         register_form = CreateUserForm(request.POST)
         if register_form.is_valid():
             register_form.save()
+            messages.info(request, "Account Created Successfully!")
             return redirect('login')
+            
     context = {'register_form':register_form}
     return render(request,'register.html',context)
 
     
-def login(request):
-    return render(request,'login.html')
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password1')
+        user = authenticate(request, username = username, password = password)
+        if user is not None:
+            login(request, user)
+            return redirect('index')
+        else:
+            messages.info(request, "Invalid User")    
+    return render(request, 'login.html')
+
+
 def logout(request):
     return render(request,'logout.html')
