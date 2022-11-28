@@ -55,7 +55,7 @@
                             Hello {{user.username}}
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="{% url 'index' %}">Logout</a></li>
+                            <li><a class="dropdown-item" href="{% url 'user_logout' %}">Logout</a></li>
                         </ul>
                     </div>
                     <!-- <p>Hello {{user.username}}</p>
@@ -63,9 +63,9 @@
               <a class="nav-link" href="{% url 'index' %}">Logout</a>
             </li> -->
                     {% else %}
-                    <a class="nav-link" href="{% url 'index' %}">
+                    <a class="nav-link" href="{% url 'register' %}">
                         <button type="button" class="btn btn-outline-primary">Sign Up</button></a>
-                    <a class="nav-link" href="{% url 'index' %}">
+                    <a class="nav-link" href="{% url 'user_login' %}">
                         <button type="button" class="btn btn-outline-success">Login</button>
                     </a>
 
