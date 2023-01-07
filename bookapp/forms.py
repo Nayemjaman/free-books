@@ -6,11 +6,11 @@ from django.contrib.auth.models import User
 
 
 class BookSearchForm(forms.ModelForm):
+    # name_of_book = forms.CharField(max_length=100, widget=forms.TextInput(attrs={
+    #     'class':"form-control rounded bg-primary", 'placeholder':"Enter book name"
+    # }))
     name_of_book = forms.CharField(max_length=100, widget=forms.TextInput(attrs={
-        'class':"form-control rounded", 'placeholder':"Enter book name"
-    }))
-    name_of_book = forms.CharField(max_length=100, widget=forms.TextInput(attrs={
-        'class':"form-control mr-sm-2", 'placeholder':"Enter book name"
+        'class':"form-control mr-sm-2 bg-info text-dark", 'placeholder':"Enter book name"
 
     }))
     class Meta:
