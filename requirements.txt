@@ -20,3 +20,4 @@ trio-websocket==0.9.2
 tzdata==2022.6
 urllib3==1.26.10
 wsproto==1.1.0
+python-decouple==3.8
