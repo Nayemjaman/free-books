@@ -4,4 +4,5 @@ Pillow==9.2.0
 pycparser==2.21
 sqlparse==0.4.3
 urllib3==1.26.10
+dj-database-url==1.2.0
 
