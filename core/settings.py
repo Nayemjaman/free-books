@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-$m_-7(9=^o(#c&=en5d0qta#(-zf$90n)uhy7h(!3&p%z(8$g3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["free-books.onrender.com"]
 
 CUSTOM_APPS = [
     'bookapp'
@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
