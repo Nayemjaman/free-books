@@ -77,12 +77,13 @@
 
 
                             <hr>
-                            {% for category in categories %}
+                            {% for category in category %}
                             <li class="nav-item  my-0">
                                 <p uk-margin style="width: 80%; margin: auto;font-size: 50px;">
 
                                     <a class="btn btn-info"
-                                        href="{% url 'category_detail' category.slug %}">{{category.name}}</a>
+                                        href="{% url '
+                                              _detail' category.slug %}">{{category.name}}</a>
 
                                 </p>
                             </li>
