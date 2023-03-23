@@ -29,9 +29,9 @@ def all_books(request):
 
 
 def category_detail(request, slug):
-    category = Category.objects.get(slug=slug)
+    categories = Category.objects.get(slug=slug)
     context = {
-        'category': category
+        'categories': categories
     }
     return render(request, 'category_detail.html', context)
 
