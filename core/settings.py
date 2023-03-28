@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 
 from pathlib import Path
-import dj_database_url
 import os
 
 # Initialise environment variables
@@ -31,7 +30,7 @@ SECRET_KEY = 'django-insecure-$m_-7(9=^o(#c&=en5d0qta#(-zf$90n)uhy7h(!3&p%z(8$g3
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-# ALLOWED_HOSTS = []
+
 
 CUSTOM_APPS = [
     'bookapp'
@@ -81,18 +80,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+Database
+https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL')),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
 
 
 # Password validation
